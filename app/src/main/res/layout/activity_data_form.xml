@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:card_view="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#8D1E9ADD"
+android:orientation="vertical"
+tools:context=".DataForm">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+
+</TextView>
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="32dp"
+    android:background="#fff"
+    card_view:cardCornerRadius="8dp"
+    card_view:cardElevation="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="NAME"
+
+            >
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/addressEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ADDRESS"
+            android:inputType="text">
+
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+        </TextView>
+        <EditText
+            android:id="@+id/cnicEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=" CNIC"
+            android:inputType="text"
+            >
+        </EditText>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+        </TextView>
+        <EditText
+            android:id="@+id/mobileNumberEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="MOBILE NUMBER"
+            android:inputType="number"
+            >
+        </EditText>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+        </TextView>
+        <Spinner
+            android:id="@+id/sGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Spinner>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+    </TextView>
+
+</androidx.cardview.widget.CardView>
+
+
+<Button
+    android:id="@+id/btnDone"
+    android:layout_width="95dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical|center_horizontal"
+    android:text="DONE">
+
+</Button>
+
+
+
+
+</LinearLayout>

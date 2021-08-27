@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.media.MediaCodec;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,28 +42,51 @@ public class MainActivity extends AppCompatActivity {
                 checkDataEntered();
                 SAVEpref();
 
-                Intent i = new Intent(MainActivity.this,LogIn.class);
-                startActivity(i);
+
             }
         });
 
             }
 
+    boolean isEmail(EditText eMail) {
+        CharSequence email = eMail.getText().toString();
+        return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+    }
+
+    boolean isEmpty(EditText password) {
+        CharSequence str = password.getText().toString();
+        return TextUtils.isEmpty(str);
+    }
+
  private void checkDataEntered(){
 
-        if (eMail.getText().toString().isEmpty()){
 
-            eMail.setError("Email Cannot be empty");
-        }
-     if (password.getText().toString().isEmpty()){
 
-         password.setError("password Cannot be empty");
+     if (isEmpty(password)) {
+         password.setError("PASSWORD CANNOT BE EMPTY");
      }
-     if (confirmPassword.getText().toString().isEmpty()){
 
-         confirmPassword.setError("confirm password Cannot be empty");
+     if (isEmpty(confirmPassword)) {
+         confirmPassword.setError("CONFIRM password CAN NOT BE EMPTY");
      }
+
+     if (isEmail(eMail) == false) {
+         eMail.setError("Enter valid email!");
+
+
+     }
+     if (password.getText().toString().length()<6){
+         password.setError("PASSWORD MUST BE SIX CHARACTER OR MORE ");
+     }
+
+
+     else {
+         Intent i = new Intent(MainActivity.this,LogIn.class);
+         startActivity(i);
+     }
+
  }
+
 
 
 public void SAVEpref(){

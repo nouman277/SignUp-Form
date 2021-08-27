@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SignUpForm</string>
     <string-array name="genderArray">
+        <item>SELECT GANDER</item>
         <item>MAlE</item>
         <item>FEMALE</item>
     </string-array>

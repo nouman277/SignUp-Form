@@ -8,10 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LogIn extends AppCompatActivity {
 
-    private EditText eMailLogin,passwordLogin,EMAIL,PASSWORD;
+    private EditText eMailLogin,passwordLogin;
 
 
     private Button login;
@@ -35,12 +36,25 @@ public class LogIn extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkPref();
 
-                if (eMailLogin.equals(EMAIL) && passwordLogin.equals(PASSWORD)) {
+               final String email = eMailLogin.getText().toString();
+                final String password =passwordLogin.getText().toString();
+
+                SharedPreferences sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE);
+                final String Email = sharedPreferences.getString("value","");
+
+
+                SharedPreferences sharedPreferences1 = getSharedPreferences("myKey", MODE_PRIVATE);
+                String Password1 = sharedPreferences1.getString("value1","");
+
+
+                if (email.equals(Email) && password.equals(Password1)) {
 
                     Intent intent = new Intent(LogIn.this, DataForm.class);
                     startActivity(intent);
+                }
+                else {
+                    Toast.makeText(LogIn.this, " EMAIL or PASSWORD", Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -56,13 +70,8 @@ public class LogIn extends AppCompatActivity {
 
 
 
-       SharedPreferences sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE);
-       String value = sharedPreferences.getString("value","");
-       EMAIL.setText(value);
 
-       SharedPreferences sharedPreferences1 = getSharedPreferences("myKey", MODE_PRIVATE);
-       String value1 = sharedPreferences1.getString("value1","");
-       PASSWORD.setText(value1);
+
 
 
 
